@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 @login_required(login_url='/login/')
 def recipes_info(request):
     if request.method == "POST":  # Corrected the HTTP method check
@@ -52,7 +53,7 @@ def update_recipe(request,id):
     context={'reciepe':queryset}
     return render(request,'updatereciepes.html',context)
 
-@login_required(login_url='/register/')
+# @login_required(login_url='/register/')
 def login_page(request):
     if request.method=='POST':
         username=request.POST.get('username')
